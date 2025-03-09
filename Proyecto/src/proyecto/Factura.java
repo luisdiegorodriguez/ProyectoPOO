@@ -29,5 +29,6 @@ public class Factura {
         c.llenarDatos();
         this.cliente = c;
     }
-
+    
+    
 }
