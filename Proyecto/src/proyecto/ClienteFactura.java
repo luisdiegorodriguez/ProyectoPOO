@@ -13,6 +13,30 @@ public class ClienteFactura {
     public Cliente cliente;
     public static Factura[] facturas = new Factura[100];
     
+    public static void menufactura (){
+         boolean continuar = true;
+        while (continuar) {
+           
+            String[] opciones = {"Generar Factura", "Cancelar Factura",  "Salir"};
+            int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", "Sistema de Facturación", 
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+            switch (opcion) {
+                case 0:
+                    generarFactura();
+                    break;
+                case 1:
+                    cancelarFactura();
+                    break;
+                case 2:
+                    continuar = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+    }
+    
     public static void generarFactura() {
         int contador = 0;
         if (contador < facturas.length) { 
