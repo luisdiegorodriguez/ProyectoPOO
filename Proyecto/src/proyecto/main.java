@@ -4,11 +4,12 @@
  */
 package proyecto;
 public class main {
-      
+   
+    public static void main(String[] args) {         
+    ClienteFactura.menufactura();
+    ClienteFactura.cancelarFactura();
+    ClienteFactura.generarFactura();
     
-
-    public static void main(String[] args) {
         
-         
 }
 }
