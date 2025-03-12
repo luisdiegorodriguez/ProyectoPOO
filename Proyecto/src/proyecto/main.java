@@ -6,7 +6,7 @@ package proyecto;
 public class main {
    
     public static void main(String[] args) {         
-    ClienteFactura.menufactura();
+    ClienteFactura.menuFactura();
     ClienteFactura.cancelarFactura();
     ClienteFactura.generarFactura();
     

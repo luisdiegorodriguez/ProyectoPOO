@@ -5,21 +5,19 @@
 package proyecto;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Diego
- */
 public class ClienteFactura {
-    public Cliente cliente;
-    public static Factura[] facturas = new Factura[100];
-    
-    public static void menufactura (){
-         boolean continuar = true;
+   public Cliente cliente;
+   public static Factura[] facturas = new Factura[100];  
+   private static int contador = 0; 
+
+    public static void menuFactura (){
+        boolean continuar = true;
         while (continuar) {
            
             String[] opciones = {"Generar Factura", "Cancelar Factura",  "Salir"};
             int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", "Sistema de Facturación", 
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+
             switch (opcion) {
                 case 0:
                     generarFactura();
@@ -29,16 +27,17 @@ public class ClienteFactura {
                     break;
                 case 2:
                     continuar = false;
+                    System.out.println("Cierre");
                     break;
                 default:
+                    System.out.println("Opcion no valida");
                     break;
             }
         }
-
     }
-    
+
+   
     public static void generarFactura() {
-        int contador = 0;
         if (contador < facturas.length) { 
             String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente:");
             String fechaVisita = java.time.LocalDate.now().toString(); 
@@ -57,7 +56,6 @@ public class ClienteFactura {
 
     
     public static void cancelarFactura() {
-        int contador = 0;
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente para cancelar su factura:");
         boolean encontrada = false;
         for (int i = 0; i < contador; i++) {
@@ -73,5 +71,5 @@ public class ClienteFactura {
             JOptionPane.showMessageDialog(null, "Factura no encontrada o ya anulada para " + nombre);
         }
     }
-    
-}
+
+    }
