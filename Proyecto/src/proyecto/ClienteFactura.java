@@ -14,8 +14,8 @@ public class ClienteFactura {
         boolean continuar = true;
         while (continuar) {
            
-            String[] opciones = {"Generar Factura", "Cancelar Factura",  "Salir"};
-            int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", "Sistema de Facturación", 
+            String[] opciones = {"Generar Factura", "Cancelar Factura", "Salir"};
+            int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", "***Sistema de Facturación***", 
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
 
             switch (opcion) {
@@ -27,7 +27,6 @@ public class ClienteFactura {
                     break;
                 case 2:
                     continuar = false;
-                    System.out.println("Cierre");
                     break;
                 default:
                     System.out.println("Opcion no valida");
@@ -68,7 +67,7 @@ public class ClienteFactura {
         }
 
         if (!encontrada) {
-            JOptionPane.showMessageDialog(null, "Factura no encontrada o ya anulada para " + nombre);
+            JOptionPane.showMessageDialog(null, "Factura no encontrada o ya anulada para el cliente: " + nombre);
         }
     }
 

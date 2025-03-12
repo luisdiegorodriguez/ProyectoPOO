@@ -7,9 +7,6 @@ public class main {
    
     public static void main(String[] args) {         
     ClienteFactura.menuFactura();
-    ClienteFactura.cancelarFactura();
-    ClienteFactura.generarFactura();
-    
         
 }
 }
