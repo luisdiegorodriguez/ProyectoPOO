@@ -6,7 +6,7 @@ package proyecto;
 import javax.swing.JOptionPane;
 
 public class RegistroUsuarios {
-        Usuario[] usuarios = new Usuario[100];
+    Usuario[] usuarios = new Usuario[100];
     int contador = 0;
 
     public void agregarUsuario() {
