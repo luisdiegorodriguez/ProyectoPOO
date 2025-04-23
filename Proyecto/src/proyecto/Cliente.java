@@ -16,7 +16,7 @@ public class Cliente {
     private String Ciudad;
     private String direccion;
     private boolean activo;
-    private Categoria categoria;
+    public Categoria c;
     private String fechaVisita;
     private String horaVisita;
 
@@ -28,18 +28,28 @@ public class Cliente {
         this.fechaVisita = fechaVisita;
     }
     
-    
-
+ 
     public Cliente(String nombre, String Apellido, String Ciudad, String direccion, boolean activo, Categoria categoria, String fechaVisita, String horaVisita) {
         this.nombre = nombre;
         this.Apellido = Apellido;
         this.Ciudad = Ciudad;
         this.direccion = direccion;
         this.activo = activo;
-        this.categoria = categoria;
+        this.c = categoria;
         this.fechaVisita = fechaVisita;
         this.horaVisita = horaVisita;
     }
+
+    public Cliente(String nombre, String Apellido, String Ciudad, String direccion, boolean activo, Categoria c) {
+        this.nombre = nombre;
+        this.Apellido = Apellido;
+        this.Ciudad = Ciudad;
+        this.direccion = direccion;
+        this.activo = activo;
+        this.c = c;
+    }
+    
+    
     
     public void llenarDatos() {
         this.nombre = JOptionPane.showInputDialog(null,"Digite el nombre:" );
@@ -49,9 +59,9 @@ public class Cliente {
         this.activo = Boolean.parseBoolean(JOptionPane.showInputDialog(null,"Digite true para activo o false para inactivo:" ));
         this.fechaVisita = JOptionPane.showInputDialog(null,"Digite la fecha de visita" );
         this.horaVisita = JOptionPane.showInputDialog(null,"Digite la hora de visita" );
-        Categoria c = new Categoria();
+        Categoria cat = new Categoria();
         c.llenarDatos();
-        this.categoria = c;
+        this.c = cat;
     }
     
 
@@ -95,13 +105,15 @@ public class Cliente {
         this.activo = activo;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public Categoria getC() {
+        return c;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setC(Categoria c) {
+        this.c = c;
     }
+
+    
 
     public String getFechaVisita() {
         return fechaVisita;

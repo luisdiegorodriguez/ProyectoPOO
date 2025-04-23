@@ -4,13 +4,12 @@
  */
 package proyecto;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Diego
- */
+
+
 public class Categoria {
     private int id;
     private String descripcion;
+    private boolean activo = true;
 
     public void llenarDatos() {
         this.id = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el id:" ));
@@ -20,8 +19,6 @@ public class Categoria {
 
     public Categoria() {
     }
-
-    
     
     public Categoria(int id, String descripcion) {
         this.id = id;
@@ -43,5 +40,14 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    
     
 }

@@ -35,7 +35,6 @@ public class ClienteFactura {
         }
     }
 
-   
     public static void generarFactura() {
         if (contador < facturas.length) { 
             String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente:");
@@ -70,5 +69,4 @@ public class ClienteFactura {
             JOptionPane.showMessageDialog(null, "Factura no encontrada o ya anulada para el cliente: " + nombre);
         }
     }
-
-    }
+}
