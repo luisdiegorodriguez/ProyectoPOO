@@ -10,15 +10,23 @@ public class CatalogoCategorias {
     static int contador = 0;
     
     public static void generarCategoria() {
+        boolean inArray = false;
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la categoria:");
         if (contador < c.length) { 
-            String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la categoria:");
-            
-            Categoria cat = new Categoria(contador,nombre);
-            
-            c[contador] = cat;
-            contador++;
-            
-            JOptionPane.showMessageDialog(null, "Categoria creada para " + nombre);
+            for (int i = 0; i < contador; i++) {
+                if (c[i].getDescripcion().equals(nombre)) {
+                    inArray = true;
+                    break;
+                }
+            }
+            if (inArray == false) { 
+                Categoria cat = new Categoria(contador,nombre);
+                c[contador] = cat;
+                contador++;
+                JOptionPane.showMessageDialog(null, "Categoria creada para " + nombre); 
+            }else {
+                JOptionPane.showMessageDialog(null, "La categoria que escribio ya existe en el sistema.");
+            }
         } else { 
             JOptionPane.showMessageDialog(null, "No hay espacio para más Categorías.");
         }
