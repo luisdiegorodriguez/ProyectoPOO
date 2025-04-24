@@ -33,7 +33,7 @@ public class CatalogoCategorias {
     }
     
     public static void desactivarCategoria() {
-        String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la categoría que desea borrar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre de la categoría que desea desactivar:");
         boolean e = false;
         for (int i = 0; i < contador; i++) {
             if (c[i].getDescripcion().equals(nombre) && c[i].isActivo() == true) {

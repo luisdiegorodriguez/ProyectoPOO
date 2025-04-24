@@ -35,7 +35,7 @@ public class CatalogoProductos {
     }
     
     public static void desactivarProducto() {
-        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del producto que desea borrar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del producto que desea desactivar:");
         boolean e = false;
         for (int i = 0; i < contador; i++) {
             if (p[i].getNombre().equals(nombre) && p[i].isEstado() == true) {

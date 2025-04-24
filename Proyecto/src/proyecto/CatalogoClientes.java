@@ -40,8 +40,8 @@ public class CatalogoClientes {
     }
     
     public static void desactivarCliente() {
-        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente que desea borrar:");
-        String apellido = JOptionPane.showInputDialog("Ingrese el apellido del cliente que desea borrar:");
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente que desea desactivar:");
+        String apellido = JOptionPane.showInputDialog("Ingrese el apellido del cliente que desea desactivar:");
         boolean e = false;
         for (int i = 0; i < contador; i++) {
             if (cl[i].getNombre().equals(nombre) && cl[i].getApellido().equals(apellido) && cl[i].isActivo() == true) {
@@ -58,7 +58,6 @@ public class CatalogoClientes {
     
     public static void mostrarDatos() {
         int j = contador;
-        JOptionPane.showMessageDialog(null, j);
         for (int i = 0; i < j; i++) {
             JOptionPane.showMessageDialog(null, cl[i].mostrarDatos()+"\n");
         }
