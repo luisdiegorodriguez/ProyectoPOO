@@ -6,7 +6,6 @@ package proyecto;
 import javax.swing.JOptionPane;
 
 public class ClienteFactura {
-   public Cliente cliente;
    public static Factura[] facturas = new Factura[100];  
    private static int contador = 0; 
 
@@ -35,21 +34,30 @@ public class ClienteFactura {
         }
     }
 
-    public static void generarFactura() {
-        if (contador < facturas.length) { 
-            String nombre = JOptionPane.showInputDialog("Ingrese el nombre del cliente:");
-            String fechaVisita = java.time.LocalDate.now().toString(); 
+    public static void generarFactura() {  
+        Producto prod[] = new Producto[20];
+        if (CatalogoClientes.existeCliente() == true){
+            if (contador < facturas.length) { 
+                Cliente cliente = new Cliente();
+                
+                cliente = CatalogoClientes.buscarCliente();
+                Factura factura = new Factura(cliente);
+                for (int i = 0; i < 2; i++) {
+                    CatalogoProductos.generarProducto();
 
-            Cliente cliente = new Cliente(nombre, fechaVisita);
-            Factura factura = new Factura(cliente);
+                }
+                
+                facturas[contador] = factura;  
+                contador++;  
 
-            facturas[contador] = factura;  
-            contador++;  
-
-            JOptionPane.showMessageDialog(null, "Factura generada para " + nombre);
+                JOptionPane.showMessageDialog(null, "Factura generada");
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay espacio para más facturas.");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "No hay espacio para más facturas.");
+            JOptionPane.showMessageDialog(null, "Cliente no esta registrado. Por favor registrar al cliente.");
         }
+        
     }
 
     

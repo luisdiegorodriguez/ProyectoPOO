@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Factura {
     Cliente cliente;
+    
     boolean estaActiva;
 
     public Factura(Cliente cliente) {

@@ -23,7 +23,7 @@ public class CatalogoCategorias {
                 Categoria cat = new Categoria(contador,nombre);
                 c[contador] = cat;
                 contador++;
-                JOptionPane.showMessageDialog(null, "Categoria creada para " + nombre); 
+                JOptionPane.showMessageDialog(null, "Categoria creada"); 
             }else {
                 JOptionPane.showMessageDialog(null, "La categoria que escribio ya existe en el sistema.");
             }
@@ -38,7 +38,7 @@ public class CatalogoCategorias {
         for (int i = 0; i < contador; i++) {
             if (c[i].getDescripcion().equals(nombre) && c[i].isActivo() == true) {
                 c[i].setActivo(false);
-                JOptionPane.showMessageDialog(null, "Categoria " + nombre + " desactivada.");
+                JOptionPane.showMessageDialog(null, "Categoria desactivada.");
                 e = true;
                 break;
             }
@@ -64,11 +64,18 @@ public class CatalogoCategorias {
         return cat;
     }
     
+    public static void mostrarDatos() {
+        int j = contador;
+        for (int i = 0; i < j; i++) {
+            JOptionPane.showMessageDialog(null, c[i].mostrarDatos()+"\n");
+        }
+    }
+    
     public static void menuCategoria(){
         boolean continuar = true;
         while (continuar) {
            
-            String[] opciones = {"Generar Categoria", "Desactivar Categoria", "Salir"};
+            String[] opciones = {"Generar Categoria", "Desactivar Categoria","Mostrar Datos", "Salir"};
             int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", "***Categorias***", 
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
 
@@ -80,6 +87,9 @@ public class CatalogoCategorias {
                     desactivarCategoria();
                     break;
                 case 2:
+                    mostrarDatos();
+                    break;
+                case 3:
                     continuar = false;
                     break;
                 default:

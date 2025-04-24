@@ -10,19 +10,27 @@ public class CatalogoProductos {
     static int contador = 0;
     
     public static void generarProducto() {
+        boolean inArray = false;
+        String nombre = JOptionPane.showInputDialog(null,"Digite el nombre:" );
+        double costo = Double.parseDouble(JOptionPane.showInputDialog(null,"Digite el costo:" ));
+        String hileraCat = JOptionPane.showInputDialog(null,"Digite el nombre de la categoria:" );
         if (contador < p.length) { 
-            String nombre = JOptionPane.showInputDialog(null,"Digite el nombre:" );
-            double costo = Double.parseDouble(JOptionPane.showInputDialog(null,"Digite el costo:" ));
-
-            p[contador].setNombre(nombre);
-            p[contador].setCosto(costo);
-            p[contador].setEstado(true);
-            p[contador].setCategoria(CatalogoCategorias.buscarCategoria());
-            contador++;
-            
-            JOptionPane.showMessageDialog(null, "Producto creado para " + nombre);
+            for (int i = 0; i < contador; i++) {
+                if (p[i].getNombre().equals(nombre)) {
+                    inArray = true;
+                    break;
+                }
+            }
+            if (inArray == false) { 
+                Producto pro = new Producto(nombre,true,costo,hileraCat);
+                p[contador] = pro;
+                contador++;
+                JOptionPane.showMessageDialog(null, p[contador].mostrarDatos()+"\n");
+            } else { 
+                JOptionPane.showMessageDialog(null, "No hay espacio para más productos.");
+            }
         } else { 
-            JOptionPane.showMessageDialog(null, "No hay espacio para más Productos.");
+            JOptionPane.showMessageDialog(null, "No hay espacio para más productos.");
         }
     }
     
@@ -32,7 +40,7 @@ public class CatalogoProductos {
         for (int i = 0; i < contador; i++) {
             if (p[i].getNombre().equals(nombre) && p[i].isEstado() == true) {
                 p[i].setEstado(false);
-                JOptionPane.showMessageDialog(null, "Producto " + nombre + " desactivado.");
+                JOptionPane.showMessageDialog(null, "Producto desactivado.");
                 e = true;
                 break;
             }
@@ -42,11 +50,30 @@ public class CatalogoProductos {
         }
     }
     
-    public static void menuCategoria(){
+    public static void mostrarDatos() {
+        int j = contador;
+        for (int i = 0; i < j; i++) {
+            JOptionPane.showMessageDialog(null, p[i].mostrarDatos()+"\n");
+        }
+    }
+    
+    public static Producto buscarProducto() {
+        Producto producto = new Producto();
+        String nombre = JOptionPane.showInputDialog("Ingrese el nombre del producto que desea buscar:");
+        boolean e = false;
+        for (int i = 0; i < contador; i++) {
+            if (p[i].getNombre().equals(nombre)) {
+                producto = p[i];
+            }
+        }
+        return producto;
+    }
+    
+    public static void menuProductos(){
         boolean continuar = true;
         while (continuar) {
            
-            String[] opciones = {"Generar Producto", "Desactivar Producto", "Salir"};
+            String[] opciones = {"Generar Producto", "Desactivar Producto", "Mostrar Datos", "Salir"};
             int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción", "***Productos***", 
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
 
@@ -58,6 +85,9 @@ public class CatalogoProductos {
                     desactivarProducto();
                     break;
                 case 2:
+                    mostrarDatos();
+                    break;
+                case 3:
                     continuar = false;
                     break;
                 default:

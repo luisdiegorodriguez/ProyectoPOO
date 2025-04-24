@@ -48,6 +48,11 @@ public class Categoria {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+
+    public String mostrarDatos() {
+        return "Categoria{" + "id=" + id + ", descripcion=" + descripcion + ", activo=" + activo + '}';
+    }
     
     
 }

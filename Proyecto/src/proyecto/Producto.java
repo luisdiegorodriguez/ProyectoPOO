@@ -15,8 +15,21 @@ public class Producto {
     private boolean estado;
     private double costo;
     private Categoria categoria;   
+    private String hileraCat;
 
-    public Producto(String nombre, boolean estado, double costo, Categoria categoria) {
+    public String getHileraCat() {
+        return hileraCat;
+    }
+
+    public void setHileraCat(String hileraCat) {
+        this.hileraCat = hileraCat;
+    }
+
+    public Producto() {
+    }
+
+    
+    public Producto(String nombre, boolean estado, double costo, String hileraCat) {
         this.nombre = nombre;
         this.estado = estado;
         this.costo = costo;
@@ -27,9 +40,10 @@ public class Producto {
         this.nombre = JOptionPane.showInputDialog(null,"Digite el nombre:" );
         this.costo = Double.parseDouble(JOptionPane.showInputDialog(null,"Digite el apellido:" ));
         this.estado = Boolean.parseBoolean(JOptionPane.showInputDialog(null,"Digite true para activo o false para inactivo:" ));
+        this.hileraCat = JOptionPane.showInputDialog(null,"Digite la categoria:" );
         Categoria c = new Categoria();
-        c.setId(Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el id:" )));
-        c.setDescripcion(JOptionPane.showInputDialog(null,"Digite la descripcion" ));
+        c.setId(Integer.parseInt(JOptionPane.showInputDialog(null,"Digite el id de la categoria:" )));
+        c.setDescripcion(hileraCat);
         this.categoria = c;
     }
 
@@ -64,6 +78,12 @@ public class Producto {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    public String mostrarDatos() {
+        return "Producto{" + "nombre=" + nombre + ", estado=" + estado + ", costo=" + costo + ", Categoria=" + hileraCat + '}';
+    }
+
+    
     
     
 }

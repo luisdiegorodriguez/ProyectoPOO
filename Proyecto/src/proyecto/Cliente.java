@@ -17,12 +17,36 @@ public class Cliente {
     private String direccion;
     private boolean activo;
     public Categoria c;
+    private String hileraCat;
+
+    public String getHileraCat() {
+        return hileraCat;
+    }
+
+    public void setHileraCat(String hileraCat) {
+        this.hileraCat = hileraCat;
+    }
     private String fechaVisita;
     private String horaVisita;
 
     public Cliente() {
     }
 
+    public Cliente(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Cliente(String nombre, String Apellido, String Ciudad, String direccion, boolean activo, String hileraCat) {
+        this.nombre = nombre;
+        this.Apellido = Apellido;
+        this.Ciudad = Ciudad;
+        this.direccion = direccion;
+        this.activo = activo;
+        this.hileraCat = hileraCat;
+    }
+
+    
+    
     public Cliente(String nombre, String fechaVisita) {
         this.nombre = nombre;
         this.fechaVisita = fechaVisita;
@@ -57,8 +81,9 @@ public class Cliente {
         this.Ciudad = JOptionPane.showInputDialog(null,"Digite la ciudad:" );
         this.direccion = JOptionPane.showInputDialog(null,"Digite la direccion:" );
         this.activo = Boolean.parseBoolean(JOptionPane.showInputDialog(null,"Digite true para activo o false para inactivo:" ));
-        this.fechaVisita = JOptionPane.showInputDialog(null,"Digite la fecha de visita" );
-        this.horaVisita = JOptionPane.showInputDialog(null,"Digite la hora de visita" );
+        this.fechaVisita = JOptionPane.showInputDialog(null,"Digite la fecha de visita:" );
+        this.horaVisita = JOptionPane.showInputDialog(null,"Digite la hora de visita:" );
+        this.hileraCat = JOptionPane.showInputDialog(null,"Digite la categoria:" );
         Categoria cat = new Categoria();
         c.llenarDatos();
         this.c = cat;
@@ -131,8 +156,9 @@ public class Cliente {
         this.horaVisita = horaVisita;
     }
 
-    
-
+    public String mostrarDatos() {
+        return "Cliente{" + "nombre=" + nombre + ", Apellido=" + Apellido + ", Ciudad=" + Ciudad + ", direccion=" + direccion + ", estado=" + activo + ", categoria=" + hileraCat + '}';
+    }
     
     
 }
